@@ -1,0 +1,323 @@
+<link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<link href="https://cdn.datatables.net/datetime/1.5.1/css/dataTables.dateTime.min.css">
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>FICHAS <small>.</small></h3>
+            </div>
+
+
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-md-12 col-sm-12 ">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>RESERVAS <small>FICHAS</small></h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="calendar-exibit">
+                                <div class="col-md-3">
+
+                                    <fieldset>
+                                        <div class="control-group">
+                                            FECHA INICIO:
+                                            <div class="controls">
+                                                <div class="col-md-11 xdisplay_inputx form-group row has-feedback">
+                                                    <span class="fa fa-calendar-o form-control-feedback left"
+                                                        aria-hidden="true"></span>
+                                                    <span id="inputSuccess2Status3" class="sr-only">(success)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <div class="control-group">
+                                            FECHA FINAL:
+
+                                            <div class="controls">
+                                                <div class="col-md-11 xdisplay_inputx form-group row has-feedback">
+                                                    <span class="fa fa-calendar-o form-control-feedback left"
+                                                        aria-hidden="true"></span>
+                                                    <span id="inputSuccess2Status3" class="sr-only">(success)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <div class="control-group">
+                                            ESPECIALIDAD:
+                                            <div class="controls">
+                                                <div class="col-md-11 xdisplay_inputx form-group row has-feedback">
+                                                    <select class="form-control select" data-live-search="true"
+                                                        onchange="EspecialidadChange(this)" id="lespecialidad"
+                                                        name="lespecialidad" style="width: 100%;">
+                                                        <option id="0" value="0" selected="selected">
+                                                            [TODAS
+                                                            LAS ESPECIALIDAD] </option>
+                                                        {section name=posi loop= $lespecialidad}
+                                                        <option value="{$lespecialidad[posi].nombre}">
+                                                            {$lespecialidad[posi].nombre}
+                                                        </option>
+                                                        {/section}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <div class="control-group">
+                                            MEDICO:
+                                            <div class="controls">
+                                                <div class="col-md-11 xdisplay_inputx form-group row has-feedback">
+                                                    <select class="form-control select" data-live-search="true"
+                                                        id="lmedico" name="lmedico" style="width: 100%;">
+                                                        <option value="0" disabled="disabled" selected="selected">
+                                                            [SELECCIONE
+                                                            UN MEDICO] </option>
+                                                        <option value="0" selected="selected">
+                                                            TODOS LOS MEDICOS
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="calendar-exibit">
+                                <div class="col-md-3">
+
+                                    <fieldset>
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <div class="col-md-11 xdisplay_inputx form-group row has-feedback">
+                                                    <button class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"
+                                                            style="color: rgb(252, 252, 252);">
+                                                            BUSCAR </i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm12">
+
+                        </div>
+                        <!-- /form input mask -->
+                        <!-- form color picker -->
+
+                        <div class="col-sm-12">
+                            <div class="card-box table-responsive">
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <div class="col-md-11 xdisplay_inputx form-group row has-feedback">
+                                                    <button class="btn btn-success"><i class="fa fa-file-excel-o"
+                                                            onclick="exportTableToExcel('fichatabla','ExportarFichas')"
+                                                            aria-hidden="true" style="color: rgb(252, 252, 252);">
+                                                            EXCEL </i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                                </div>
+                                <div class="col-md-3">
+                                </div>
+                                <div class="col-md-3">
+                                </div>
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <div class="col-md-11 xdisplay_inputx form-group row has-feedback">
+                                                    Busqueda:
+                                                    <input id="myInput" type="text" placeholder="Busqueda..">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                                </div>
+                                <br><br>
+                                <table border="0" cellspacing="5" cellpadding="5">
+                                    <tbody><tr>
+                                        <td>Minimum date:</td>
+                                        <td><input type="text" id="min" name="min"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Maximum date:</td>
+                                        <td><input type="text" id="max" name="max"></td>
+                                    </tr>
+                                </tbody></table>
+                                <table id="example" class="display nowrap" style="width:100%">
+                                    <thead>
+
+                                        <tr>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>ID</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">FECHA </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">TURNO </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">CARNET </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">MATRICULA </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">NOMBRE PACIENTE</font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">EMPRESA </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">PARENTESCO </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">CODIGO MEDICO </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">NOMBRE MEDICO </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">ESPECIALIDAD </font>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="myTable">
+                                        {section name=pos loop= $lhorario}
+                                        <tr>
+                                            <td>
+
+                                                {$lhorario[pos].id}
+
+                                            </td>
+                                            <td>
+                                                <center>
+                                                    {$lhorario[pos].fecha}
+
+                                                </center>
+                                            </td>
+                                            <td>
+
+                                                {$lhorario[pos].turno}
+
+                                            </td>
+                                            <td>
+                                                <a>
+                                                    {$lhorario[pos].carnet}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a>
+                                                    {$lhorario[pos].matricula}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a>
+                                                    {$lhorario[pos].nombre}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a>
+                                                    {$lhorario[pos].empresa}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a>
+                                                    {$lhorario[pos].parentesco}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a>
+                                                    {$lhorario[pos].codigo}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a>
+                                                    {$lhorario[pos].nombremedico}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a>
+                                                    {$lhorario[pos].especialidad}
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {/section}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- /page content -->
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/datetime/1.5.1/js/dataTables.dateTime.min.js"></script>
+<script>
+    let minDate, maxDate;
+
+    // Custom filtering function which will search data in column four between two values
+    DataTable.ext.search.push(function (settings, data, dataIndex) {
+        let min = minDate.val().toISOString().slice(0, 10);;
+        let max = maxDate.val().toISOString().slice(0, 10);;
+        let date = new Date(data[1]);
+
+        if (
+            (min === null && max === null) ||
+            (min === null && date <= max) ||
+            (min <= date && max === null) ||
+            (min <= date && date <= max)
+        ) {
+            return true;
+        }
+        return false;
+    });
+
+    // Create date inputs
+    minDate = new DateTime('#min', {
+        format: 'MMMM dd YYYY'
+    });
+    maxDate = new DateTime('#max', {
+        format: 'MMMM dd YYYY'
+    });
+
+    // DataTables initialisation
+    let table = new DataTable('#example');
+
+    // Refilter the table
+    document.querySelectorAll('#min, #max').forEach((el) => {
+        el.addEventListener('change', () => table.draw());
+    });
+</script>

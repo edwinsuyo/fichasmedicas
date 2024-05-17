@@ -1,0 +1,65 @@
+<script src="../validacion/validacion.js"></script>
+<div class="right_col" role="main">
+    <div class="">
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="x_panel">
+
+                    <div class="x_content">
+                        <form class="" enctype="multipart/form-data" action="{$gestor}" method="POST" name="vvalida"
+                            onsubmit="return valida_registrar_dia_medico()">
+                            <input type="hidden" name="opcion" value="{$opcion}">
+                            <span class="section">REGISTRO DE DIA DE TRABAJOS</span>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="especialidad">MEDICO
+                                    <span class="required">:</span>
+                                </label>
+                                <input type="hidden" id="idmedico" name="idmedico" value=" {$lmedico[0].id}">
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="text" class="form-control" disabled="disabled"
+                                        placeholder="{$lmedico[0].nombremedico}">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="especialidad">DIA DE LA
+                                    SEMANA
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    {section name=posi loop= $ldiasemana}
+                                    <div class="checkbox">
+                                        <label>
+                                            {if {$ldiasemana[posi].idmedico} == 0}
+                                            <input type="checkbox" name="check_list[]"
+                                                value="{$ldiasemana[posi].idsemana}">
+                                            {else}
+                                            <input type="checkbox" name="check_list[]"
+                                                value="{$ldiasemana[posi].idsemana}" checked>
+                                            {/if}
+                                            {$ldiasemana[posi].nombredia}
+                                        </label>
+                                    </div>
+                                    {/section}
+                                </div>
+                            </div>
+                            <div class="ln_solid">
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 offset-md-3">
+                                        <button name="Submit" value="Enviar" type="submit"
+                                            class="btn btn-primary">REGISTRAR</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <button onclick="window.history.back();" class="btn btn-secondary">VOLVER
+                            ATRAS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END TEMPLATE -->

@@ -1,0 +1,449 @@
+<script src="../validacion/validacion.js"></script>
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                    <div class="x_title">
+
+                        <ul class="nav nav-pills" role="tablist">
+                            <li role="presentation" class="dropdown">
+                                <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" role="button" aria-expanded="false">VIGENCIA DE DERECHO<span
+                                        class="caret"></span></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{$gestor}?opcion=40">BUSCAR AFILIADO</a>
+                                    <a class="dropdown-item" href="{$gestor}?opcion=41">VIGENCIA DE EMPRESA</a>
+                                    <a class="dropdown-item" href="{$gestor}?opcion=42">LISTAR MAYOR DE 19 AÑOS</a>
+                                    <a class="dropdown-item" href="{$gestor}?opcion=43">GRUPO FAMILIAR</a>
+                                    <a class="dropdown-item" href="{$gestor}?opcion=44">VERIFICAR ESTADO FAMILIAR</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2>BUSQUEDA DE ASEGURADO TITULAR O BENEFICIARIO</h2>
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <ul class="nav navbar-right panel_toolbox" style="visibility: hidden;">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                                aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Settings 1</a>
+                                                </li>
+                                                <li><a href="#">Settings 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <form class="form-horizontal form-label-left">
+                                        <div class="form-group row">
+                                            <label class="control-label col-md-2" for="first-name">MATRICULA:<span
+                                                    class="required"></span>
+                                            </label>
+                                            <div class="col-md-7">
+                                                <input type="text" data-inputmask="'mask' : '**-****-*****'" w
+                                                    id="matriculabuscar" required="required"
+                                                    onkeypress="CargarDatosAfiliados(event)"
+                                                    class="form-control col-md-12">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="control-label col-md-2" for="last-name">AFILIADO:<span
+                                                    class="required"></span>
+                                            </label>
+                                            <div class="col-md-7">
+                                                <input type="text" placeholder="Busqueda por apellido a nombre"
+                                                    id="nombrebuscar" name="last-name"
+                                                    oninput="BuscarPorNombreAsegurado()" required="required"
+                                                    class="form-control col-md-12">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="x_panel">
+                                <div class="x_content">
+
+                                    <div class="row">
+                                        <div class="card-box table-responsive">
+
+                                            <table id="tablaafiliado" style="width:100%" class="yourClass">
+                                                <thead>
+
+                                                    <tr>
+                                                        <th style="background-color: darkgreen;">
+                                                            <font color="white">
+                                                                <center>ID</center>
+                                                            </font>
+                                                        </th>
+                                                        <th style="background-color: darkgreen;">
+                                                            <font color="white">NOMBRE</font>
+                                                        </th>
+                                                        <th style="background-color: darkgreen;">
+                                                            <font color="white">MATRICULA</font>
+                                                        </th>
+                                                        <th style="background-color: darkgreen;">
+                                                            <font color="white">EDAD</font>
+                                                        </th>
+                                                        <th style="background-color: darkgreen;">
+                                                            <font color="white">GENERO</font>
+                                                        </th>
+                                                        <th style="background-color: darkgreen;">
+                                                            <font color="white">PARENTESCO</font>
+                                                        </th>
+                                                        <th style="background-color: darkgreen;">
+                                                            <font color="white">EMPRESA</font>
+                                                        </th>
+                                                        <th style="background-color: darkgreen;">
+                                                            <font color="white">BAJA</font>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Datos del Asegurado</h2>
+                                    <ul class="nav navbar-right panel_toolbox" style="visibility: hidden;">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                                aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#">Settings 1</a>
+                                                <a class="dropdown-item" href="#">Settings 2</a>
+                                            </div>
+                                        </li>
+                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="field item form-group">
+
+
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label
+                                                class="col-form-label col-md-6 col-sm-6  label-align">MATRICULA:</label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" id="matriculadetalle" name="name" disabled="disabled"
+                                                    required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-6 col-sm-6  label-align">APELLIDO
+                                                PATERNO:</label>
+                                            <div class="col-md-12 col-sm-12">
+                                                <input class="form-control" id="apellidopaternodetalle" name="name" disabled="disabled"
+                                                    required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-6 col-sm-6  label-align">APELLIDO
+                                                MATERNO:</label>
+                                            <div class="col-md-12 col-sm-12">
+                                                <input class="form-control" id="apellidomaternodetalle" name="name" disabled="disabled"
+                                                    required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label
+                                                class="col-form-label col-md-6 col-sm-6  label-align">NOMBRES:</label>
+                                            <div class="col-md-12 col-sm-12">
+                                                <input class="form-control" id="nombredetalle" name="name" disabled="disabled"
+                                                    required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-6 col-sm-6  label-align">TOTAL
+                                                GANADO:</label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" id="ganadodetalle" name="name" disabled="disabled"
+                                                    required="required" />
+                                            </div>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">SEXO:</label>
+                                            <div class="col-md-3 col-sm-3">
+                                                <input class="form-control" id="sexodetalle" name="name" disabled="disabled"
+                                                    required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-6 col-sm-6  label-align">FECHA DE
+                                                INGRESO:</label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" id="fechaingresodetalle" name="name" disabled="disabled"
+                                                    required="required" />
+                                            </div>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">EDAD:</label>
+                                            <div class="col-md-3 col-sm-3">
+                                                <input class="form-control" id="edaddetalle" name="name" disabled="disabled"
+                                                    required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label
+                                                class="col-form-label col-md-6 col-sm-6  label-align">PARENTESCO:</label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" id="parentescodetalle" name="name" disabled="disabled"
+                                                    required="required" />
+                                            </div>
+                                            <label
+                                                class="col-form-label col-md-3 col-sm-3  label-align">REGIONAL:</label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" id="regionaldetalle" name="name" disabled="disabled"
+                                                    required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-6 col-sm-6  label-align">MES DE LA 
+                                                PLANILLA:</label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" id="mesplanilladetalle" name="name" 
+                                                    required="required" />
+                                            </div>
+                                            <label class="col-form-label col-md-4 col-sm-4  label-align">FECHA DE 
+                                                AFILIACION:</label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" id="fechaafiliaciondetalle" name="name"  disabled="disabled"
+                                                    required="required" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="field item form-group">
+                                            <h1>BAJA:</h1>
+                                            <div class="col-md-6 col-sm-6">
+                                                <style>
+                                                    .cuadro {
+                                                        /* width: 300px; /* Ancho del cuadro */
+                                                        /* height: 200px; /* Altura del cuadro */
+                                                        background-color: red;
+                                                        /* Color de fondo rojo */
+                                                        color: white;
+                                                        /* Color del texto */
+                                                        text-align: center;
+                                                        /* Alineación del texto al centro */
+                                                        line-height: 200px;
+                                                        /* Altura de línea igual a la altura del cuadro para centrar verticalmente */
+                                                        font-size: 24px;
+                                                        /* Tamaño de fuente */
+                                                    }
+                                                </style>
+                                                <div class="cuadro">
+                                                    <h1 id="bajadetalle"> </h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="field item form-group">
+                                                <h2>FECHA DE BAJA:</h2>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <style>
+                                                        .cuadro2 {
+                                                            /* width: 300px; /* Ancho del cuadro */
+                                                            /* height: 200px; /* Altura del cuadro */
+                                                            background-color: white;
+                                                            /* Color de fondo rojo */
+                                                            color: black;
+                                                            /* Color del texto */
+                                                            text-align: center;
+                                                            /* Alineación del texto al centro */
+                                                            line-height: 200px;
+                                                            /* Altura de línea igual a la altura del cuadro para centrar verticalmente */
+                                                            font-size: 24px;
+                                                            /* Tamaño de fuente */
+                                                        }
+                                                    </style>
+                                                    <div class="cuadro2">
+                                                        <h1 id="fechabajadetalle"></h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <CENTER>
+                                            <h2>FECHA LIMITE DE ATENCION</h2>
+                                        </CENTER>
+                                        <style>
+                                            .cuadro {
+                                                /* width: 300px; /* Ancho del cuadro */
+                                                /* height: 200px; /* Altura del cuadro */
+                                                background-color: red;
+                                                /* Color de fondo rojo */
+                                                color: white;
+                                                /* Color del texto */
+                                                text-align: center;
+                                                /* Alineación del texto al centro */
+                                                line-height: 200px;
+                                                /* Altura de línea igual a la altura del cuadro para centrar verticalmente */
+                                                font-size: 24px;
+                                                /* Tamaño de fuente */
+                                            }
+                                        </style>
+                                        <div class="cuadro">
+                                            <h1 id="fechalimitedetalle"> </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="x_panel">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-6 col-sm-6  label-align">MATRICULA
+                                                TITULAR:</label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" id="matriculatitulardetalle" name="name" disabled="disabled"
+                                                    required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-6 col-sm-6  label-align">NOMBRE
+                                                ASEGURADO:</label>
+                                            <div class="col-md-12 col-sm-12">
+                                                <input class="form-control" id="nombretitulardetalle" name="name" required="required" disabled="disabled"/>
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label
+                                                class="col-form-label col-md-6 col-sm-6  label-align">EMPRESA:</label>
+                                            <div class="col-md-12 col-sm-12">
+                                                <input class="form-control" id="empresadetalle" name="name" disabled="disabled"
+                                                    required="required" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#tablaafiliado').DataTable({
+            //dom: 'B<"row"<"col-sm-6" l><"col-sm-6"f>>' + 'tip',
+            /*buttons: [
+                // { extend: 'pdf', className: 'btn btn-secondary' },
+                //{ extend: 'copy', className: 'btn btn-primary' }
+                // { extend: 'excel', className: 'btn btn-success' },
+                // { extend: 'print', className: 'btn btn-info' },
+            ],*/
+            //lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]]
+        });
+    });
+
+
+    document.getElementById("tablaafiliado").addEventListener("click", function (event) {
+        var target = event.target;
+        while (target && target.nodeName !== "TR") {
+            target = target.parentNode;
+        }
+        if (target) {
+            var cells = target.getElementsByTagName("td");
+            //document.getElementById("selectedRowData").value = cells[0].innerText + " " + cells[1].innerText + " " + cells[2].innerText;
+            //alert(cells[0].innerText + " " + cells[1].innerText + " " + cells[2].innerText);
+            var afiliados = "datoafiliacion.php?opcion=6&id=" + cells[0].innerText;
+            $.ajax({
+                url: afiliados,
+                dataType: 'json',
+                success: cargardatosafiliadodetalle
+            });
+        }
+    });
+
+    function cargardatosafiliadodetalle(json) {
+
+        var l = json.length;
+        var nombretitular = '';
+        for (i = 0; i < l; i++) {
+            document.getElementById("matriculadetalle").value = json[i].matricula_beneficiario;
+            document.getElementById("apellidopaternodetalle").value = json[i].apellido_pat;
+            document.getElementById("apellidomaternodetalle").value = json[i].apellido_mat;
+            document.getElementById("nombredetalle").value = json[i].nombre;
+            document.getElementById("ganadodetalle").value = json[i].salario;
+            document.getElementById("sexodetalle").value = json[i].genero;
+            document.getElementById("fechaingresodetalle").value = json[i].fecha_ingreso;
+            document.getElementById("edaddetalle").value = json[i].edad;
+            document.getElementById("parentescodetalle").value = json[i].parentesco;
+            document.getElementById("regionaldetalle").value = json[i].regional;
+            document.getElementById("mesplanilladetalle").value = json[i].regional;
+            document.getElementById("fechaafiliaciondetalle").value = json[i].fecha_verificacion;
+            document.getElementById("bajadetalle").innerHTML  = json[i].baja;
+            document.getElementById("fechabajadetalle").innerHTML  = json[i].fecha_baja;
+            document.getElementById("fechalimitedetalle").innerHTML  = json[i].fecha_limite;
+            document.getElementById("matriculatitulardetalle").value = json[i].matricula_titular;
+            nombretitular = json[i].matricula_titular;
+            document.getElementById("empresadetalle").value = json[i].empresa;
+
+        }
+        var afiliados = "datoafiliacion.php?opcion=3&matricula=" + nombretitular;
+        $.ajax({
+            url: afiliados,
+            dataType: 'json',
+            success: cargardatostitularafiliadodetalle
+        });
+    }
+    function cargardatostitularafiliadodetalle(json) {
+
+        var l = json.length;
+        for (i = 0; i < l; i++) {
+           
+            document.getElementById("nombretitulardetalle").value = json[i].nombrecompleto;
+            
+        }
+        
+    }
+</script>
+
+<style>
+    .yourClass {
+        border-collapse: collapse;
+        width: 300px;
+    }
+
+    .yourClass th,
+    .yourClass td {
+        padding: 10px;
+        border: solid 1px #777;
+    }
+</style>

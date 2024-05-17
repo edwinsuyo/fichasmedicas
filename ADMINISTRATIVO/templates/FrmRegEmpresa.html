@@ -1,0 +1,140 @@
+<script src="../validacion/validacion.js"></script>
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                    <div class="x_title">
+
+                        <ul class="nav nav-pills" role="tablist">
+                            <li role="presentation" class="dropdown">
+                                <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" role="button" aria-expanded="false">VIGENCIA DE DERECHO<span
+                                        class="caret"></span></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{$gestor}?opcion=40">BUSCAR AFILIADO</a>
+                                    <a class="dropdown-item" href="{$gestor}?opcion=41">VIGENCIA DE EMPRESA</a>
+                                    <a class="dropdown-item" href="{$gestor}?opcion=42">LISTAR MAYOR DE 19 AÑOS</a>
+                                    <a class="dropdown-item" href="{$gestor}?opcion=43">GRUPO FAMILIAR</a>
+                                    <a class="dropdown-item" href="{$gestor}?opcion=44">VERIFICAR ESTADO FAMILIAR</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    {$mensaje}
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="x_panel">
+
+                                <div class="x_content">
+                                    <form class="" enctype="multipart/form-data" action="{$gestor}" method="POST" name="vvalida">
+                                        <span class="section">FORMULARIO DE REGISTRO DE EMPRESA</span>
+                                        <input type="hidden" name="opcion" value="{$opcion}">
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">EMPRESA<span
+                                                    class="required">:</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" data-validate-length-range="6"
+                                                    name="empresa" id="empresa" placeholder="Nombre de la empresa"
+                                                    required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">REPRESENTANTE
+                                                LEGAL<span class="required">:</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" data-validate-length-range="6"
+                                                    name="representante" id="representante"
+                                                    placeholder="Nombre del dueño" required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Nº
+                                                PATRONAL<span class="required">:</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" data-validate-length-range="6"
+                                                    name="nropatronal" id="nropatronal" placeholder="Numero patronal"
+                                                    required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">REGIONAL <span
+                                                    class="required">:</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" data-validate-length-range="6"
+                                                    name="regional" id="regional" placeholder="lugar regional"
+                                                    required="required" list="dlist"
+                                                    class="form-control" />
+                                            </div>
+                                            <datalist id='dlist'>
+                                                <option value="REGIONAL SANTA CRUZ">REGIONAL SANTA CRUZ</option>
+                                                <option value="REGIONAL SUCRE">REGIONAL SUCRE</option>
+                                                <option value="REGIONAL LA PAZ">REGIONAL LA PAZ</option>
+                                                <option value="REGIONAL COCHABAMBA">REGIONAL COCHABAMBA</option>
+                                                <option value="REGIONAL BENI">REGIONAL BENI</option>
+                                                <option value="REGIONAL TARIJA">REGIONAL TARIJA</option>
+                                                <option value="REGIONAL POTOSI">REGIONAL POTOSI</option>
+                                                <option value="REGIONAL ORURO">REGIONAL ORURO</option>
+                                                <option value="REGIONAL PANDO">REGIONAL PANDO</option>
+                                                <option value="REGIONAL GUABIRA">REGIONAL GUABIRA</option>
+                                            </datalist>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">TELEFONO<span
+                                                    class="required">:</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" data-validate-length-range="6"
+                                                    name="telefono" id="telefono" placeholder="Telefono de la empresa"
+                                                    required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">DIRECCION<span
+                                                    class="required">:</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" data-validate-length-range="6"
+                                                    name="direccion" id="direccion" placeholder="Direccion de la empresa"
+                                                    required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">FECHA
+                                                INICIO<span class="required">:</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" class='date' type="date"
+                                                    id="fechainicio" name="fechainicio" required='required'>
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">FECHA FINAL DE
+                                                CONTRATO<span class="required">:</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" class='date' type="date" 
+                                                    id="fechafinal" name="fechafinal" required='required'>
+                                            </div>
+                                        </div>
+                                        <div class="ln_solid">
+                                            <div class="form-group">
+                                                <div class="col-md-6 offset-md-3">
+                                                    <button name="Submit" value="Enviar" type="submit" class="btn btn-primary">REGISTRAR</button>
+                                                    <button type='reset' class="btn btn-success" style="display: none;">LIMPIAR</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

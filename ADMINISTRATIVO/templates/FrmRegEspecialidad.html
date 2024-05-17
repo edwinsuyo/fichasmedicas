@@ -1,0 +1,44 @@
+
+<script src="../validacion/validacion.js"></script>
+
+<div class="right_col" role="main">
+    <div class="">
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="x_panel">
+
+                    <div class="x_content">
+                        <form class="" enctype="multipart/form-data" action="{$gestor}" method="POST" name="vvalidaespecialidad"
+                            onsubmit="return valida_registrar_especialidad()">
+                            <input type="hidden" name="opcion" value="{$opcion}">
+                            <span class="section">REGISTRO DE ESPECIALIDAD</span>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="especialidad">ESPECIALIDAD
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="text" id="especialidad" name="especialidad" required="required"
+                                        class="form-control ">
+                                </div>
+                            </div>
+                            <div class="ln_solid">
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 offset-md-3">
+                                        <button name="Submit" value="Enviar" type="submit"
+                                            class="btn btn-primary">REGISTRAR</button>
+                                        <!--<button type='reset' class="btn btn-success">Reset</button>!-->
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END TEMPLATE -->

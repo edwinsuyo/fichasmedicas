@@ -1,0 +1,160 @@
+<script src="../validacion/validacion.js"></script>
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>USUARIOS <small>.</small></h3>
+            </div>
+
+
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="col-md-12 col-sm-12 ">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>LISTADO <small>USUARIOS</small></h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card-box table-responsive">
+                                <p class="text-muted font-13 m-b-30">
+                                    Lista de Medicos Especialistas.
+                                </p>
+                                <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>ID</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>NOMBRE</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>APELLIDO</center>
+                                                </font>
+                                            </th>
+
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>USERNAME </center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>ESTADO </center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>FECHA DE CREACION</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>TIPO DE USUARIO </center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>ACCIONES </center>
+                                                </font>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {section name=pos loop= $lusuario}
+                                        <tr>
+                                            <td style="color: dimgray; font-weight: 800; text-align: center">
+
+                                                <h5>{$lusuario[pos].id}</h5>
+
+                                            </td>
+                                            <td style="color: dimgray; font-weight: 800; text-align: center">
+                                                <center>
+                                                    <h5>{$lusuario[pos].nombre}</h5>
+
+                                                </center>
+                                            </td>
+                                            <td style="color: dimgray; font-weight: 800; text-align: center">
+                                                <H5>
+                                                    {$lusuario[pos].apellido}
+                                                </H5>
+                                            </td>
+                                            <td style="color: dimgray; font-weight: 800; text-align: center">
+                                                <a>
+                                                    <h5>{$lusuario[pos].username}</h5>
+                                                </a>
+                                            </td>
+                                            <td style="color: dimgray; font-weight: 800; text-align: center">
+                                                <a>
+                                                    {if {$lusuario[pos].estado} == 0}
+                                                    <h5>ACTIVO</h5>
+                                                    {else}
+                                                    <h5>NO ACTIVO</h5>
+                                                    {/if}
+                                                </a>
+                                            </td>
+                                            <td style="color: dimgray; font-weight: 800; text-align: center">
+                                                <a>
+                                                    <h5>{$lusuario[pos].fecha}</h5>
+                                                </a>
+                                            </td>
+                                            <td style="color: dimgray; font-weight: 800; text-align: center">
+                                                <a>
+                                                    <h5>{$lusuario[pos].tipousuario}</h5>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <center>
+                                                    <form class="" enctype="multipart/form-data" method="POST">
+                                                    <a href="{$gestor}?opcion={$opcion}&id={$lusuario[pos].id}"
+                                                        class="btn btn-info btn-xs"><i
+                                                            class="fa fa-edit"></i> Modificar</a>
+                                                    </form>
+                                                </center>
+                                            </td>
+                                        </tr>
+                                        {/section}
+                                    </tbody>
+                                </table>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $('#datatable').DataTable({
+            dom: 'B<"row"<"col-sm-6" l><"col-sm-6"f>>' + 'tip',
+            buttons: [
+             /*   { extend: 'pdf', className: 'btn btn-secondary' },
+                { extend: 'copy', className: 'btn btn-primary' },
+                { extend: 'excel', className: 'btn btn-success' },
+                { extend: 'print', className: 'btn btn-info' },
+        */],
+            lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]]
+
+        });
+    });
+</script>
+<!-- /page content -->

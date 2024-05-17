@@ -1,0 +1,130 @@
+<script src="../validacion/validacion.js"></script>
+<div class="right_col" role="main">
+    <div class="">
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="x_panel">
+
+                    <div class="x_content">
+                        <form class="" enctype="multipart/form-data" action="{$gestor}" method="POST" name="vvalida"
+                            onsubmit="return valida_registrar_medico()">
+                            <input type="hidden" name="opcion" value="{$opcion}">
+                            <input type="hidden" name="id" value="{$idmedico}">
+                            <span class="section">REGISTRO DE MEDICO</span>
+                            {section name=pos loop= $lmedico}
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="especialidad">CODIGO
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="text" id="codigo" name="codigo" required="required"
+                                        class="form-control " value="{$lmedico[pos].codigo}">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="especialidad">NOMBRE
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="text" id="nombre" name="nombre" required="required"
+                                        onkeypress="return soloLetras(event)" class="form-control"
+                                        value="{$lmedico[pos].nombre}">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="especialidad">APELLIDO
+                                    PATERNO
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="text" id="apellido_p" name="apellido_p" required="required"
+                                        onkeypress="return soloLetras(event)" class="form-control"
+                                        value="{$lmedico[pos].apellido_p}">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="especialidad">APELLIDO
+                                    MATERNO
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="text" id="apellido_m" name="apellido_m" required="required"
+                                        onkeypress="return soloLetras(event)" class="form-control"
+                                        value="{$lmedico[pos].apellido_m}">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="genero">GENERO
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <select class="select2_single form-control" tabindex="-1" id="lgenero"
+                                        name="lgenero" style="width: 100%;">
+                                        <option id="0" value="0">
+                                            [SELECCIONA UN GENERO] </option>
+                                        {if "M" == $lmedico[pos].genero}
+                                        <option value="M" selected="select">
+                                            MASCULINO
+                                        </option>
+                                        <option value="F">
+                                            FEMENINO
+                                        </option>
+                                        {else}
+                                        <option value="M">
+                                            MASCULINO
+                                        </option>
+                                        <option value="F" selected="select">
+                                            FEMENINO
+                                        </option>
+                                        {/if}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align"
+                                    for="especialidad">ESPECIALIDAD
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <!-- --class="select2_single form-control" 
+                                    -->
+                                    <select class="select2_single form-control" tabindex="-1" id="lespecialidad"
+                                        name="lespecialidad" style="width: 100%;">
+                                        <option id="0" value="0">
+                                            [TODAS
+                                            LAS ESPECIALIDAD] </option>
+                                        {section name=posi loop= $lespecialidad}
+                                        {if $lespecialidad[posi].id == $lmedico[pos].idespecialidad}
+                                        <option value="{$lespecialidad[posi].id}" selected="select">
+                                            {$lespecialidad[posi].nombre}
+                                        </option>
+                                        {else}
+                                        <option value="{$lespecialidad[posi].id}">
+                                            {$lespecialidad[posi].nombre}
+                                        </option>
+                                        {/if}
+                                        {/section}
+                                    </select>
+                                </div>
+                            </div>
+                            {/section}
+                            <div class="ln_solid">
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 offset-md-3">
+                                        <button name="Submit" value="Enviar" type="submit"
+                                            class="btn btn-primary">MODIFICAR</button>
+                                        <!--<button type='reset' class="btn btn-success">Reset</button>!-->
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END TEMPLATE -->

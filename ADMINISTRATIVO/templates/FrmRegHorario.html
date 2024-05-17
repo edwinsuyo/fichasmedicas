@@ -1,0 +1,111 @@
+<script src="../validacion/validacion.js"></script>
+<div class="right_col" role="main">
+    <div class="">
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="x_panel">
+
+                    <div class="x_content">
+                        <form class="" enctype="multipart/form-data" action="{$gestor}" method="POST" name="vvalida"
+                            onsubmit="return valida_registrar_hora_medico()">
+                            <input type="hidden" name="opcion" value="{$opcion}">
+                            <span class="section">REGISTRO DE HORARIO</span>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="especialidad">MEDICO
+                                    <span class="required">:</span>
+                                </label>
+                                <input type="hidden" id="idmedico" name="idmedico" value=" {$lmedico[0].id}">
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="text" class="form-control" disabled="disabled"
+                                        placeholder="{$lmedico[0].nombremedico}">
+
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="especialidad">TURNO
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <select class="select2_single form-control" tabindex="-1" id="lhorario"
+                                        name="lhorario" style="width: 100%;">
+                                        <option id="0" value="0" selected="selected">
+                                            [SELECCIONA UN TURNO] </option>
+                                        {section name=posi loop= $lhorario}
+                                        <option value="{$lhorario[posi].id}">
+                                            {$lhorario[posi].turno}
+                                        </option>
+                                        {/section}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="horainicio">HORARIO DE
+                                    INICIO
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="time" id="hora_inicio" name="hora_inicio" required="required"
+                                        value="07:00" class="form-control ">
+
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="horafinal">HORARIO
+                                    FINAL
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="time" id="hora_final" name="hora_final" required="required"
+                                        value="18:00" class="form-control ">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="genero">DURACION DE LA
+                                    CONSULTA
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <div class="form-group">
+                                        <input type="number" id="duracion" name="duracion" required="required" value="0"
+                                            class="form-control" onKeyPress="return soloNumeros(event)">
+                                        <label>Minutos.</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="genero">CUPOS
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="number" name="cupo" id="cupo" required="required" value="0"
+                                        class="form-control" onKeyPress="return soloNumeros(event)">
+                                </div>
+                            </div>
+                            <div class="ln_solid">
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 offset-md-3">
+                                        <button name="Submit" value="Enviar" type="submit"
+                                            class="btn btn-primary">REGISTRAR</button>
+                                        <!--<button type='reset' class="btn btn-success">Reset</button>!-->
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <button onclick="window.history.back();" class="btn btn-secondary">VOLVER
+                            ATRAS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END TEMPLATE -->
+<script>
+    function soloNumeros(e) {
+        var key = window.Event ? e.which : e.keyCode
+        return (key >= 48 && key <= 57)
+    }
+</script>

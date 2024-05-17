@@ -1,0 +1,89 @@
+<script src="../validacion/validacion.js"></script>
+<div class="right_col" role="main">
+    <div class="">
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="x_panel">
+
+                    <div class="x_content">
+                        <form class="" enctype="multipart/form-data" action="{$gestor}" method="POST" name="vvalida"
+                            onsubmit="return valida_registrar_usuario()">
+                            <input type="hidden" name="opcion" value="{$opcion}">
+                            <span class="section">REGISTRO DE USUARIO</span>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="especialidad">NOMBRE
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="text" id="nombre" name="nombre" required="required"
+                                    onkeypress="return soloLetras(event)"    class="form-control ">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="apellido">APELLIDOS
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="text" id="apellido" name="apellido" required="required"
+                                    onkeypress="return soloLetras(event)"    class="form-control ">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align"
+                                    for="tipousuario">TIPO DE USUARIO
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <!-- --class="select2_single form-control" 
+                                    -->
+                                    <select class="select2_single form-control" tabindex="-1" id="ltipousuario"
+                                        name="ltipousuario" style="width: 100%;">
+                                        <option id="0" value="0" selected="selected">
+                                            [SELECCIONE EL TIPO DE USUARIO] </option>
+                                        {section name=posi loop= $ltipousuario}
+                                        <option value="{$ltipousuario[posi].id}">
+                                            {$ltipousuario[posi].nombre}
+                                        </option>
+                                        {/section}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="username">NOMBRE USUARIO
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="text" id="usuario" name="usuario" required="required"
+                                    onkeypress="return soloLetras(event)"    class="form-control ">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="username">Password
+                                    <span class="required">:</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="password" id="password" name="password" required="required"
+                                        class="form-control ">
+                                </div>
+                            </div>
+                            
+                            <div class="ln_solid">
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 offset-md-3">
+                                        <button name="Submit" value="Enviar" type="submit"
+                                            class="btn btn-primary">REGISTRAR</button>
+                                        <!--<button type='reset' class="btn btn-success">Reset</button>!-->
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END TEMPLATE -->

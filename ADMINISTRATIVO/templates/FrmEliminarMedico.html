@@ -1,0 +1,126 @@
+<script src="../validacion/validacion.js"></script>
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>MEDICOS <small>.</small></h3>
+            </div>
+
+
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="col-md-12 col-sm-12 ">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>LISTADO <small>MEDICOS</small></h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card-box table-responsive">
+                                <p class="text-muted font-13 m-b-30">
+                                    Lista de Medicos Especialistas.
+                                </p>
+                                <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>ID</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>CODIGO</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>NOMBRE</center>
+                                                </font>
+                                            </th>
+
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>ESPECIALIDAD </center>
+                                                </font>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>ACCIONES </center>
+                                                </font>
+                                            </th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {section name=pos loop= $lmedico}
+                                        <tr>
+                                            <td style="color: dimgray; font-weight: 800; text-align: center">
+
+                                                <h5>{$lmedico[pos].id}</h5>
+
+                                            </td>
+                                            <td style="color: dimgray; font-weight: 800; text-align: center">
+                                                <center>
+                                                    <h5>{$lmedico[pos].codigo}</h5>
+
+                                                </center>
+                                            </td>
+                                            <td style="color: dimgray; font-weight: 800; text-align: center">
+                                                <H5>
+                                                    {$lmedico[pos].nombre}
+                                                </H5>
+                                            </td>
+                                            <td style="color: dimgray; font-weight: 800; text-align: center">
+                                                <a>
+                                                    <h5>{$lmedico[pos].especialidad}</h5>
+                                                </a>
+                                            </td>
+                                            <td style="color: dimgray; font-weight: 800; text-align: center">
+                                                {if {$lmedico[pos].estado} == 0}
+                                                <a href="{$gestor}?opcion={$opcion}&id={$lmedico[pos].id}"
+                                                    class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Baja</a>
+                                                {else}
+                                                <a href="{$gestor}?opcion={$habilitar}&id={$lmedico[pos].id}"
+                                                    class="btn btn-info btn-xs"><i class="fa fa-check-square"></i> Habilitar</a>
+                                                {/if}
+                                            </td>
+
+                                        </tr>
+                                        {/section}
+                                    </tbody>
+                                </table>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $('#datatable').DataTable({
+            dom: 'B<"row"<"col-sm-6" l><"col-sm-6"f>>' + 'tip',
+            buttons: [
+                { extend: 'pdf', className: 'btn btn-secondary' },
+                { extend: 'copy', className: 'btn btn-primary' },
+                { extend: 'excel', className: 'btn btn-success' },
+                { extend: 'print', className: 'btn btn-info' },
+            ],
+            lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]]
+        });
+    });
+</script>
+<!-- /page content -->

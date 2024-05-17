@@ -1,0 +1,225 @@
+<script src="../validacion/validacion.js"></script>
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>AFILIADOS <small>.</small></h3>
+            </div>
+
+
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="col-md-12 col-sm-12 ">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>LISTADO <small>AFILIADOS</small></h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card-box table-responsive">
+                                <p class="text-muted font-13 m-b-30">
+                                    Lista de Asegurados.
+                                </p>
+                                <table id="datatable" class="table table-striped table-bordered"  style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>ID</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>APELLIDO PATERNO</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>APELLIDO MATERNO</center>
+                                                </font>
+                                            </th>
+
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>NOMBRE</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>MATRICULA TITULAR</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>FECHA NACIMIENTO</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>EDAD</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>SEXO</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>FECHA DE INGRESO</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>EMPRESA</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>NUMERO PATRONAL</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>FECHA DE PRESENTACION</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>CI</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>EXPIRADO CI</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>FACTOR RH</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>GRUPO</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>CATEGORIA</center>
+                                                </font>
+                                            </th>
+
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>PARENTESCO</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>FECHA EXTINCION</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>MATRICULA BENEFICIARIA</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>VERIFICADA</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>FECHA VERIFICADO</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>VIVO</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>BAJA</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>REGIONAL</center>
+                                                </font>
+                                            </th>
+                                            <th style="background-color: darkgreen;">
+                                                <font color="white">
+                                                    <center>COTIZA</center>
+                                                </font>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {section name=pos loop= $lasegurado}
+                                        <tr>
+                                            <td>{$lasegurado[pos].id}</td>
+                                            <td>{$lasegurado[pos].apellido_pat}</td>
+                                            <td>{$lasegurado[pos].apellido_mat}</td>
+                                            <td>{$lasegurado[pos].nombre}</td>
+                                            <td>{$lasegurado[pos].matricula_titular}</td>
+                                            <td>{$lasegurado[pos].fecha_nacimiento}</td>
+                                            <td>{$lasegurado[pos].edad}</td>
+                                            <td>{$lasegurado[pos].genero}</td>
+                                            <td>{$lasegurado[pos].fecha_ingreso}</td>
+                                            <td>{$lasegurado[pos].empresa}</td>
+                                            <td>{$lasegurado[pos].numeropatronal}</td>
+                                            <td>{$lasegurado[pos].fecha_presentacion}</td>
+                                            <td>{$lasegurado[pos].ci}</td>
+                                            <td>{$lasegurado[pos].expirado}</td>
+                                            <td>{$lasegurado[pos].factorrh}</td>
+                                            <td>{$lasegurado[pos].grupo}</td>
+                                            <td>{$lasegurado[pos].categoria}</td>
+                                            <td>{$lasegurado[pos].parentesco}</td>
+                                            <td>{$lasegurado[pos].fecha_extincion}</td>
+                                            <td>{$lasegurado[pos].matricula_beneficiario}</td>
+                                            <td>{$lasegurado[pos].recepcion}</td>
+                                            <td>{$lasegurado[pos].fecha_verificacion}</td>
+                                            <td>{$lasegurado[pos].vivo}</td>
+                                            <td>{$lasegurado[pos].baja}</td>
+                                            <td>{$lasegurado[pos].regional}</td>
+                                            <td>{$lasegurado[pos].cotiza}</td>
+                                        </tr>
+                                        {/section}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $('#datatable').DataTable({
+            dom: 'B<"row"<"col-sm-6" l><"col-sm-6"f>>' + 'tip',
+            buttons: [
+             /*   { extend: 'pdf', className: 'btn btn-secondary' },
+                { extend: 'copy', className: 'btn btn-primary' },
+                { extend: 'excel', className: 'btn btn-success' },
+                { extend: 'print', className: 'btn btn-info' },
+        */],
+        lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]]
+
+    });
+});*/
+</script>
+<!-- /page content -->
